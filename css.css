@@ -19,8 +19,20 @@ input {
 
 .weather {
     width: 90%;
-    height: 70px;
+    height: 150px;
     border: 1px solid;
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ele {
+    width: fit-content;
+    height: fit-content;
+}
+
+h3 {
+    line-height: 16px;
+    font-size: 20px;
 }

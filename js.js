@@ -3,9 +3,10 @@
 const lat = document.querySelector('.lat');
 const lon = document.querySelector('.lon');
 const searchBtn = document.querySelector('.search');
-const city = document.querySelector('.city');
-const temp = document.querySelector('.temp');
-const wind = document.querySelector('.wind');
+const city = document.querySelector('.city2');
+const temp = document.querySelector('.temp2');
+const wind = document.querySelector('.wind2');
+const app = document.querySelector('.app');
 
 function isNumber(evt) {
     evt = (evt) ? evt : window.event;
@@ -28,9 +29,36 @@ async function getApi(lat, lon) {
 searchBtn.onclick = async function (e) {
     e.preventDefault();
 
-    let data = await getApi(lat.value, lon.value);
 
-    city.innerText = data.name;
-    temp.innerText = data.main.temp;
-    wind.innerText = data.wind.speed;
+    if (lat.value && lon.value) {
+        let data = await getApi(lat.value, lon.value);
+        if (data.cod !== 200) {
+            city.innerText = '...';
+            temp.innerText = '...';
+            wind.innerText = '...';
+        }
+
+        else {
+            city.innerText = data.name;
+            temp.innerText = data.main.temp;
+            wind.innerText = data.wind.speed;
+        }
+
+
+        if (data.main.temp > 288.888) {
+            app.style.background = 'rgb(3, 105, 239)';
+        }
+    } else {
+        alert('Please fill it out completely');
+
+        if (lat.value === '') {
+            lat.focus();
+        } else {
+            lon.focus();
+        }
+
+    }
+
+
+
 }
