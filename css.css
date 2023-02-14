@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(45deg, #00853e, #50c878);
+}
+
+.app {
+    border: 1px solid;
+    width: fit-content;
+    padding: 20px;
+    margin: 200px auto;
+    text-align: center;
+}
+
+input {
+    padding: 5px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+
+.weather {
+    width: 90%;
+    height: 70px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+}
